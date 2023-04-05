@@ -5,16 +5,15 @@ import Form from "./Form";
 import ConfirmationPage from "./ConfirmationPage";
 
 const App = () => {
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
-  const [month, setMonth] = useState("");
-  const [year, setYear] = useState("");
-  const [cvc, setCvc] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   return (
     <div className="container">
-      {formSubmitted ? (
+      {/* <ConfirmationPage formData/> */}
+      <Header />
+      <Form setFormSubmitted={setFormSubmitted} />
+
+      {/* {formSubmitted ? (
         <ConfirmationPage
           name={name}
           setName={setName}
@@ -55,7 +54,7 @@ const App = () => {
             setFormSubmitted={setFormSubmitted}
           />
         </div>
-      )}
+      )}*/}
     </div>
   );
 };

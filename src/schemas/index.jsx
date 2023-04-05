@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-export const basicSchema = yup.object().shape({
+export const validationSchema = yup.object().shape({
   name: yup.string().required("Name is required"),
   number: yup
     .string()

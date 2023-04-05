@@ -1,12 +1,33 @@
 import React from "react";
-import { Formik } from "formik";
+import { useFormik } from "formik";
 import "./Form.css";
+import { validationSchema } from "./schemas";
 
-const Form = (props) => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    props.setFormSubmitted(true);
-  };
+const onSubmit = async (values, actions) => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  actions.resetForm();
+};
+
+const Form = () => {
+  const {
+    values,
+    errors,
+    touched,
+    isSubmitting,
+    handleChange,
+    handleSubmit,
+    handleBlur,
+  } = useFormik({
+    initialValues: {
+      name: "",
+      number: "",
+      month: "",
+      year: "",
+      cvc: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit,
+  });
 
   return (
     <div className="form-container">
@@ -17,30 +38,28 @@ const Form = (props) => {
         <input
           type="text"
           id="name"
-          value={props.name}
           placeholder="e.g. Jane Appleseed"
-          onChange={(event) => {
-            props.setName(event.target.value);
-          }}
+          value={values.name}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          className={errors.name && touched.name ? "input-error" : ""}
         />
+        {errors.name && touched.name && <p className="error">{errors.name}</p>}
 
         <label htmlFor="cardNumber">CARD NUMBER</label>
         <input
           type="text"
           id="number"
-          maxLength={19}
-          value={props.number}
+          maxLength={16}
+          value={values.number}
           placeholder="e.g. 1234 5678 9123 0000"
-          onChange={(event) => {
-            const { value } = event.target;
-            props.setNumber(
-              value
-                .replace(/\s/g, "")
-                .match(/.{1,4}/g)
-                ?.join(" ")
-            );
-          }}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          className={errors.number && touched.number ? "input-error" : ""}
         />
+        {errors.number && touched.number && (
+          <p className="error">{errors.number}</p>
+        )}
 
         <div className="security-details">
           <div className="security-details-row">
@@ -49,12 +68,15 @@ const Form = (props) => {
               type="text"
               id="month"
               maxLength={2}
-              value={props.month}
+              value={values.month}
               placeholder="MM"
-              onChange={(event) => {
-                props.setMonth(event.target.value);
-              }}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={errors.month && touched.month ? "input-error" : ""}
             />
+            {errors.month && touched.month && (
+              <p className="error">{errors.month}</p>
+            )}
           </div>
 
           <div className="security-details-row">
@@ -63,12 +85,15 @@ const Form = (props) => {
               type="text"
               id="year"
               maxLength={2}
-              value={props.year}
+              value={values.year}
               placeholder="YY"
-              onChange={(event) => {
-                props.setYear(event.target.value);
-              }}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={errors.year && touched.year ? "input-error" : ""}
             />
+            {errors.year && touched.year && (
+              <p className="error">{errors.year}</p>
+            )}
           </div>
           <div className="security-details-row">
             <label htmlFor="cvc">CVC</label>
@@ -76,16 +101,17 @@ const Form = (props) => {
               type="text"
               id="cvc"
               maxLength={3}
-              value={props.cvc}
+              value={values.cvc}
               placeholder="e.g. 123"
-              onChange={(event) => {
-                props.setCvc(event.target.value);
-              }}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className={errors.cvc && touched.cvc ? "input-error" : ""}
             />
+            {errors.cvc && touched.cvc && <p className="error">{errors.cvc}</p>}
           </div>
         </div>
 
-        <button type="submit" className="confirm-btn">
+        <button disabled={isSubmitting} type="submit" className="confirm-btn">
           Confirm
         </button>
       </form>
