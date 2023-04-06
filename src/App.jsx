@@ -16,8 +16,12 @@ const App = () => {
 
   return (
     <div className="container">
+
+      {console.log(formSubmitted)}
+      {console.log(formState)}
+
       {formSubmitted ? (
-        <ConfirmationPage />
+        <ConfirmationPage formState={formState} />
       ) : (
         <div className="desktop">
           <Header formState={formState} />

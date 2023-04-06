@@ -3,12 +3,12 @@ import "./Form.css";
 import { useFormik } from "formik";
 import { validationSchema } from "./schemas";
 
-const Form = ({ setFormState }) => {
+const Form = ({ setFormState, setFormSubmitted }) => {
   const onSubmit = async (values, actions) => {
     //update formSubmitted to true (?????)
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setFormState(values);
-    console.log(values);
+    setFormSubmitted(true);
     actions.resetForm();
   };
 
@@ -27,7 +27,6 @@ const Form = ({ setFormState }) => {
       month: "",
       year: "",
       cvc: "",
-      formSumbitted: false,
     },
     validationSchema: validationSchema,
     onSubmit,
