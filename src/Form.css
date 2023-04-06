@@ -21,7 +21,7 @@ form {
 label {
   text-align: left;
   color: #21092f;
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 1px;
   margin-bottom: 5px;
 }
@@ -89,4 +89,19 @@ input::placeholder {
 
 button:disabled {
   opacity: 0.35;
+}
+
+@media (min-width: 1080px) {
+  .form-container {
+    display: flex;
+    align-items: center;
+    margin-left: 230px;
+  }
+
+  .security-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+  }
 }

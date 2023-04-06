@@ -71,3 +71,27 @@
   margin-top: -95px;
   margin-right: 5px;
 }
+
+@media (min-width: 1080px) {
+  .card-back-div {
+    z-index: 1;
+    position: absolute;
+    top: -10px;
+    left: 265px;
+  }
+
+  .card-front-div {
+    z-index: 2;
+    position: absolute;
+    top: -190px;
+    left: 210px;
+  }
+
+  .cvc-code {
+    z-index: 2;
+    color: yellow;
+    font-size: 9px;
+    margin-left: 205px;
+    letter-spacing: 1px;
+  }
+}

@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./Header";
 import Form from "./Form";
 import ConfirmationPage from "./ConfirmationPage";
+import SideBar from "../images/bg-main-mobile.png";
 
 const App = () => {
   // const [name, setName] = useState("");
@@ -18,8 +19,9 @@ const App = () => {
       {formSubmitted ? (
         <ConfirmationPage />
       ) : (
-        <div>
+        <div className="desktop">
           <Header formState={formState} />
+          <img className="sidebar" src={SideBar} />
           <Form
             formState={formState}
             setFormState={setFormState}
