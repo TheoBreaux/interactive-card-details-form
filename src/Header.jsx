@@ -7,7 +7,6 @@ import HeaderBackground from "../images/bg-main-mobile.png";
 
 const Header = ({ formState }) => {
   return (
-    // <div className="header">
     <div>
       <div>
         <img className="header-background-image" src={HeaderBackground} />
