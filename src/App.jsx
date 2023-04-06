@@ -13,7 +13,6 @@ const App = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formState, setFormState] = useState({});
 
-
   return (
     <div className="container">
       {formSubmitted ? (
