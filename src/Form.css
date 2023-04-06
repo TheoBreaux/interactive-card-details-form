@@ -62,7 +62,7 @@ input::placeholder {
 }
 
 #cvc {
-  width: 144px;
+  width: 142px;
   padding-left: 10px;
 }
 
@@ -70,8 +70,9 @@ input::placeholder {
   background-color: #21092f;
   font-size: 18px;
   color: white;
-  width: 335px;
+  width: 342px;
   height: 53px;
+  margin-top: -5px;
 }
 
 .input-error {

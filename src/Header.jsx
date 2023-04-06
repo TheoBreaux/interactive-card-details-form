@@ -5,7 +5,7 @@ import CardFront from "../images/bg-card-front.png";
 import CardBack from "../images/bg-card-back.png";
 import HeaderBackground from "../images/bg-main-mobile.png";
 
-const Header = (props) => {
+const Header = ({ formState }) => {
   return (
     // <div className="header">
     <div>
@@ -16,17 +16,28 @@ const Header = (props) => {
       <div className="cards-div">
         <div className="card-back-div">
           <img className="card-back" src={CardBack} />
-          <p className="cvc-code">{props.cvc}</p>
+          <p className="cvc-code">{formState.cvc}</p>
         </div>
 
         <div className="card-front-div">
           <img className="card-front" src={CardFront} />
           <img className="card-logo" src={CardLogo} />
-          <p className="card-number">{props.number}</p>
+          <p className="card-number">
+            {formState.number
+              ? formState.number
+                  .replace(/\s/g, "")
+                  .match(/.{1,4}/g)
+                  ?.join(" ")
+              : null}
+          </p>
           <div className="date-info">
-            <p className="cc-name">{props.name}</p>
+            <p className="cc-name">{formState.name}</p>
             <div>
-              <p className="cc-date">{props.month && props.year ? props.month + "/" +props.year: null}</p>
+              <p className="cc-date">
+                {formState.month && formState.year
+                  ? formState.month + "/" + formState.year
+                  : null}
+              </p>
             </div>
           </div>
         </div>
