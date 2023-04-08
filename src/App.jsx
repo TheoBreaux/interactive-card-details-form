@@ -6,11 +6,6 @@ import ConfirmationPage from "./ConfirmationPage";
 import SideBar from "../images/bg-main-mobile.png";
 
 const App = () => {
-  // const [name, setName] = useState("");
-  // const [number, setNumber] = useState("");
-  // const [month, setMonth] = useState("");
-  // const [year, setYear] = useState("");
-  // const [cvc, setCvc] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formState, setFormState] = useState({});
 
