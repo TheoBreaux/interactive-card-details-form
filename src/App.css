@@ -25,6 +25,7 @@ body {
   .header-background-image {
     display: none;
   }
+
   .sidebar {
     display: block;
     height: 100vh;
@@ -39,7 +40,7 @@ body {
   .cards-div {
     z-index: 1;
     position: absolute;
-    top: 500px;
+    top: 400px;
     left: 75px;
   }
 
@@ -49,5 +50,11 @@ body {
 
   body {
     margin: 0;
+  }
+
+  .confirmation {
+    position: absolute;
+    left: 700px;
+    top: 160px;
   }
 }

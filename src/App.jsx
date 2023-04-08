@@ -16,7 +16,6 @@ const App = () => {
 
   return (
     <div className="container">
-
       {console.log(formSubmitted)}
       {console.log(formState)}
 
