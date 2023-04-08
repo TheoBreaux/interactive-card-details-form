@@ -9,18 +9,18 @@ const Header = ({ formState }) => {
   return (
     <div>
       <div>
-        <img className="header-background-image" src={HeaderBackground} />
+        <img className="header-background-image" src={HeaderBackground} alt="front of credit card background"/>
       </div>
 
       <div className="cards-div">
         <div className="card-back-div">
-          <img className="card-back" src={CardBack} />
+          <img className="card-back" src={CardBack} alt="front of credit card background"/>
           <p className="cvc-code">{formState.cvc}</p>
         </div>
 
         <div className="card-front-div">
-          <img className="card-front" src={CardFront} />
-          <img className="card-logo" src={CardLogo} />
+          <img className="card-front" src={CardFront} alt="front of credit card background"/>
+          <img className="card-logo" src={CardLogo} alt="credit card company logo"/>
           <p className="card-number">
             {formState.number
               ? formState.number

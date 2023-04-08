@@ -7,7 +7,7 @@ const ConfirmationPage = ({ formState }) => {
   return (
     <div>
       <Header formState={formState} />
-      <img className="sidebar" src={SideBar} />
+      <img className="sidebar" src={SideBar} alt="color side bar"/>
       <ThankYou />
     </div>
   );
